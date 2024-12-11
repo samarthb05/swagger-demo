@@ -30,7 +30,7 @@ module.exports.addbook = async (req, res) => {
 
 /**
  * @swagger
- * /addbook:
+ * /addBook:
  *   post:
  *     summary: Add a new book
  *     description: Adds a new book to the collection

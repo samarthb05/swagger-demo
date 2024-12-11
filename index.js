@@ -12,20 +12,22 @@ const options = {
     openapi: "3.0.0",
     info: {
       title: "Swagger Demo",
-      version: "1.0.0",
+      version: "3.0.0",
     },
   },
-  apis: ["./routes/*.js"],
+  apis: ["./controller.js"],
 };
 
 const openapiSpecification = swaggerJsDocs(options);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+
 app.use(express.json());
 connectdb();
 
 app.use("/", router);
 
 app.listen(port, () => {
-  console.log(`server listen to ${port}`);
+  console.log(`Server listen to ${port}`);
+  console.log(`Swagger is on http://localhost:${port}/api-docs`);
 });
